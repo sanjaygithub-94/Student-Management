@@ -149,7 +149,7 @@ function deleteStudent(id) {
             "_method": 'POST'
         },
         success: function (data) {
-            if (data == 1) {
+            if (data.success) {
                 window.location.reload();
             }
         }
@@ -197,7 +197,7 @@ function deleteStudentMark(id) {
             "_method": 'POST'
         },
         success: function (data) {
-            if (data == 1) {
+            if (data.success) {
                 window.location.reload();
             }
         }
