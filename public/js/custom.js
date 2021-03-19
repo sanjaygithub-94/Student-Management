@@ -12,7 +12,6 @@ $(document).ready(function () {
             success: function (data) {
                 if (data.success) {
                     $('#addStudent').modal('toggle');
-                    document.getElementById("add_student_mark_form").reset();
                     window.location.reload();
                 }
             },
