@@ -16,9 +16,8 @@ use App\Http\Controllers\StudentMarkController;
 */
 
 Route::resource('student', StudentController::class);
-Route::get('add-student', [StudentController::class, 'addStudent']);
 Route::get('edit-student/{id}', [StudentController::class, 'editStudent']);
-Route::post('update-student/{id}', [StudentController::class, 'updateStudent']);
+Route::post('update-student', [StudentController::class, 'updateStudent']);
 Route::post('delete-student/{id}', [StudentController::class, 'deleteStudent']);
 Route::resource('student-marks', StudentMarkController::class);
 Route::get('add-student-marks', [StudentMarkController::class, 'addStudentMark']);

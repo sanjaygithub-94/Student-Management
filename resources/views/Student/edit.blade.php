@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <body>
-
 <a href="{{url('/student')}}">Back</a>
 <h2>Add Student</h2>
 

@@ -51,8 +51,6 @@ class StudentController extends Controller
         if (!$create) return abort(500, 'Whoops, looks like something went wrong');
         
         return Response::json(['success' => '1']);
-        // $students = $this->studentService->index();
-        // return view('Student.list', compact('students'));
     }
 
     /**
@@ -101,17 +99,6 @@ class StudentController extends Controller
     }
 
     /**
-     * Student Add page
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function addStudent()
-    {
-        return view('Student.add');
-    }
-
-    /**
      * Student edit page
      *
      * @param  int  $id
@@ -119,9 +106,7 @@ class StudentController extends Controller
      */
     public function editStudent($id)
     {
-        $student = $this->studentService->editStudent($id);
-   
-        return view('Student.edit', compact('student'));
+        return $this->studentService->editStudent($id);
     }
 
     /**
@@ -130,14 +115,13 @@ class StudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function updateStudent(UpdateStudentRequest $request, $id)
+    public function updateStudent(UpdateStudentRequest $request)
     {
-        $update = $this->studentService->updateStudent($id);
+        $update = $this->studentService->updateStudent($request->student_id);
         
         if (!$update) return abort(500, 'Whoops, looks like something went wrong');
 
-        $students = $this->studentService->index();
-        return view('Student.list', compact('students'));
+        return Response::json(['success' => '1']);
     }
 
     /**
@@ -152,8 +136,6 @@ class StudentController extends Controller
   
         if (!$delete) return abort(500, 'Whoops, looks like something went wrong');
 
-        $students = $this->studentService->index();
-
-        return view('Student.list', compact('students'));
+        return Response::json(['success' => '1']);
     }
 }

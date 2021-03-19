@@ -24,7 +24,7 @@ tr:nth-child(even) {
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script src="/js/custom.js"></script>
 <a href="{{url('/')}}">Back</a>
-<a href="{{url('/add-student')}}"> Add Student</a>
+<!-- <a href="{{url('/add-student')}}"> Add Student</a> -->
 <button class="primary" data-toggle="modal" data-target="#addStudent">ADD</button>
 
 <table>
@@ -44,10 +44,8 @@ tr:nth-child(even) {
     <td>{{($student->gender == 1) ? 'M' : 'F' }}</td>
     <td>{{$student->reporting_person}}</td>
     <td>
-    <a href="{{url('edit-student/'.$student->id)}}"><button>Edit</button></a>
-    <form action="{{url('delete-student/'.$student->id)}}" method="POST">
-      @csrf<button type="submit">Delete</button>
-    </form>
+    <button class="primary" onclick="editStudent({{$student->id}})">Edit</button>
+    <button class="primary" onclick="deleteStudent({{$student->id}})">Delete</button>
     </td>
   </tr>
   @endforeach
@@ -95,7 +93,7 @@ tr:nth-child(even) {
     </div>
 </div>
 
-<!-- <div class="modal fade" id="editStudent" role="dialog">
+<div class="modal fade" id="editStudent" role="dialog">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -103,37 +101,30 @@ tr:nth-child(even) {
           <h4 class="modal-title">Edit Student</h4>
         </div>
         <div class="modal-body">
-          <form action="/update-student/" method="POST">
+          <form action="" method="POST" id='edit_student_form'>
             @csrf
+            <input type="hidden" id="student_id" name="student_id" value="">
             <label for="name">Name:</label><br>
-            <input type="text" id="name" name="name" value=""><br>
-            @error('name')
-              <div class="error">Required</div>
-            @enderror
+            <input type="text" id="edit_name" name="name" value=""><br>
+              <div class="edit-name-error"></div>
             <label for="age">Age:</label><br>
-            <input type="text" id="age" name="age" value=""><br>
-            @error('age')
-              <div class="error">Required</div>
-            @enderror
+            <input type="text" id="edit_age" name="age" value=""><br>
+              <div class="edit-age-error"></div>
             <label for="gender">Gender:</label><br>
-            <input type="radio" id="male" name="gender" value="1">
+            <input type="radio" id="edit-male" name="gender" value="1">
             <label for="male">Male</label>
-            <input type="radio" id="female" name="gender" value="0">
+            <input type="radio" id="edit-female" name="gender" value="0">
             <label for="female">Female</label><br>
-            @error('gender')
-              <div class="error">Required</div>
-            @enderror
+              <div class="edit-gender-error"></div>
             <label for="reporting_person">Reporting Person:</label>
-            <select name="reporting_person" id="reporting_person">
-              <option value="Alex" >Alex</option>
-              <option value="David">David</option>
-              <option value="John">John</option>
-              <option value="Paul">Paul</option>
+            <select name="reporting_person" id="edit-reporting_person">
+              <option id="edit-Alex" value="Alex" >Alex</option>
+              <option id="edit-David" value="David">David</option>
+              <option id="edit-John" value="John">John</option>
+              <option id="edit-Paul" value="Paul">Paul</option>
             </select><br>
-            @error('reporting_person')
-              <div class="error">Required</div>
-            @enderror
-            <input type="submit" value="Submit">
+              <div class="edit-reporting-error"></div>
+              <button type="button" class="edit_student_submit_btn">Save</button>
           </form>
         </div>
         <div class="modal-footer">
@@ -141,7 +132,7 @@ tr:nth-child(even) {
         </div>
       </div>
     </div>
-</div> -->
+</div>
 
 </body>
 </html>
