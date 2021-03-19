@@ -4,48 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
-<style>
-
-ul {
-    position:fixed;
-    width: 100%;
-    height: 100%;
-    background: #83c5be;
-    text-align: center;
-}
-ul li {
-    border-bottom: solid 2px #ffffff;
-    padding: 40px;
-    display:block;
-}
-ul li a {
-    text-decoration:none;
-    color: #003049;
-}
-ul li a:hover {
-    color: #000000;
-}
-a:link, a:visited {
-  background-color: #f44336;
-  color: white;
-  padding: 14px 25px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-}
-
-a:hover, a:active {
-  background-color: red;
-}
-</style>
 <body>
-<div class="menu">
-    <ul>
-        <li><a href="student">Students</a></li>
-        <li><a href="student-marks">Students-Marks</a></li>
-    </ul>
-</div>
+    <div class="container text-center my-5">
+    <h1 class="mb-5">Student Management</h1>
+    <a href="student" class="btn btn-dark">Students</a>
+    <a href="student-marks" class="btn btn-dark">Students-Marks</a>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js">
+    </script>
+</body>
+</html>
 
 
 
