@@ -23,9 +23,9 @@ tr:nth-child(even) {
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script src="/js/custom.js"></script>
+<body>
 <a href="{{url('/')}}">Back</a>
-<!-- <a href="{{url('/add-student')}}"> Add Student</a> -->
-<button class="primary" data-toggle="modal" data-target="#addStudent">ADD</button>
+<button class="primary" data-toggle="modal" data-target="#addStudent">Add Student</button>
 
 <table>
   <tr>
@@ -80,9 +80,7 @@ tr:nth-child(even) {
               <option value="John">John</option>
               <option value="Paul">Paul</option>
             </select><br>
-            @error('reporting_person')
-              <div class="error">Required</div>
-            @enderror
+              <div class="reporting_person-error">Required</div>
             <button type="button" class="add_student_submit_btn">Save</button>
           </form>
         </div>

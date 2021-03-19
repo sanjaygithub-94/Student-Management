@@ -25,18 +25,9 @@ class StudentMarkController extends Controller
     public function index()
     {
         $students = $this->studentMarkService->index();
-   
-        return view('StudentMark.list', compact('students'));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        $studentsInfo = $this->studentMarkService->getStudents();
+  
+        return view('StudentMark.list', compact('students', 'studentsInfo'));
     }
 
     /**
@@ -50,53 +41,7 @@ class StudentMarkController extends Controller
         $create = $this->studentMarkService->store($request);
         if (!$create) return abort(500, 'Whoops, looks like something went wrong');
         
-        $students = $this->studentMarkService->index();
-        return view('StudentMark.list', compact('students'));
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        return Response::json(['success' => '1']);
     }
 
     /**
@@ -120,10 +65,7 @@ class StudentMarkController extends Controller
      */
     public function editStudentMark($id)
     {
-        $studentDetails = $this->studentMarkService->editStudentMark($id);
-        $students = $this->studentMarkService->getStudents();
-   
-        return view('StudentMark.edit', compact('students', 'studentDetails'));
+        return $this->studentMarkService->editStudentMark($id);
     }
 
     /**
@@ -132,14 +74,13 @@ class StudentMarkController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function updateStudentMark(UpdateStudentMarkRequest $request, $id)
+    public function updateStudentMark(UpdateStudentMarkRequest $request)
     {
-        $update = $this->studentMarkService->updateStudentMark($id);
+        $update = $this->studentMarkService->updateStudentMark($request->student_mark_id);
         
         if (!$update) return abort(500, 'Whoops, looks like something went wrong');
 
-        $students = $this->studentMarkService->index();
-        return view('StudentMark.list', compact('students'));
+        return Response::json(['success' => '1']);
     }
 
     /**
@@ -154,8 +95,6 @@ class StudentMarkController extends Controller
   
         if (!$delete) return abort(500, 'Whoops, looks like something went wrong');
 
-        $students = $this->studentMarkService->index();
-
-        return view('StudentMark.list', compact('students'));
+        return Response::json(['success' => '1']);
     }
 }
