@@ -12,6 +12,7 @@ $(document).ready(function () {
             success: function (data) {
                 if (data.success) {
                     $('#addStudent').modal('toggle');
+                    document.getElementById("add_student_mark_form").reset();
                     window.location.reload();
                 }
             },
@@ -165,6 +166,7 @@ function editStudentMark(id) {
         url: 'edit-student-marks/' + id,
         type: 'get',
         success: function (data) {
+            $("#edit_student_id").val(data.student.id).trigger('change');
             $('#student_mark_id').val(data.id);
             $('#edit-maths_mark').val(data.maths_mark);
             $('#edit-science_mark').val(data.science_mark);

@@ -118,7 +118,7 @@ tr:nth-child(even) {
             @csrf
             <input type="hidden" id="student_mark_id" name="student_mark_id" value="">
             <label for="student_id">Student:</label>
-            <select name="student_id" id="student_id">
+            <select name="student_id" id="edit_student_id">
             <option value="0">Please select</option>
               @if (!empty($studentsInfo))
               @foreach ($studentsInfo as $studentData)

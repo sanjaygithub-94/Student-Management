@@ -80,7 +80,7 @@ tr:nth-child(even) {
               <option value="John">John</option>
               <option value="Paul">Paul</option>
             </select><br>
-              <div class="reporting_person-error">Required</div>
+              <div class="reporting_person-error"></div>
             <button type="button" class="add_student_submit_btn">Save</button>
           </form>
         </div>
