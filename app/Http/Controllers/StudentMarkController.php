@@ -45,19 +45,6 @@ class StudentMarkController extends Controller
     }
 
     /**
-     * Student-mark Add page
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function addStudentMark()
-    {
-        $students = $this->studentMarkService->getStudents();
-
-        return view('StudentMark.add', compact('students'));
-    }
-
-    /**
      * Student mark edit page
      *
      * @param  int  $id
